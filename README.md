@@ -22,3 +22,5 @@ Open `index.html` in a browser to review locally.
 
 See the Copilot customization guide: [.github/COPILOT_GUIDE.md](.github/COPILOT_GUIDE.md)
 
+You can also view the live site online at: https://quangtudng.github.io/vibe-code-example/
+
