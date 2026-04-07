@@ -29734,6 +29734,109 @@ html {
     margin-bottom: 1rem !important;
 }
 
+/* ===== SKILLS & CERTS POLISH ===== */
+/* Match spacing and horizontal inset used in About section */
+#ed-1772241484,
+#ed-1772858953 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+@media screen and (min-width: 61rem) {
+    #ed-1772241484,
+    #ed-1772858953 {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+}
+
+/* Headings consistent with About section */
+#ed-1772241487 h2,
+#ed-1772858956 h2 {
+    font-size: 36px;
+    color: #3B82F6;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+/* Column gaps and layout tuning */
+#ed-1770791760 .inner {
+    gap: 1.5rem;
+}
+
+/* Replace vendor FontAwesome list glyphs with simple discs for readability */
+#ed-1772241484 .ed-text ul>li::before,
+#ed-1772858953 .ed-text ul>li::before {
+    content: none !important;
+}
+
+#ed-1772241484 .ed-text ul,
+#ed-1772858953 .ed-text ul {
+    list-style: disc inside;
+    padding-left: 0.75rem;
+    margin: 0 0 1rem 0;
+}
+
+#ed-1772241484 .ed-text ul li,
+#ed-1772858953 .ed-text ul li {
+    line-height: 1.8;
+    color: #334155;
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+}
+
+/* Certifications: tone down heavy sizes and align with About text scale */
+#ed-1772858968 .text-24 {
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+#ed-1772858968 .text-18 {
+    font-size: 1rem;
+    color: #0f172a;
+}
+
+@media screen and (max-width: 60.9375rem) {
+    #ed-1772241484,
+    #ed-1772858953 {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* Prevent text from touching the very edge inside certs columns */
+#ed-1772858953 > .inner,
+#ed-1772858962 > .inner,
+#ed-1772858965 > .inner,
+#ed-1772858971 > .inner {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+@media screen and (min-width: 61rem) {
+    #ed-1772858953 > .inner,
+    #ed-1772858962 > .inner,
+    #ed-1772858965 > .inner,
+    #ed-1772858971 > .inner {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Add vertical spacing between certification entries */
+#ed-1772858968 .cert-entry,
+#ed-1772858968 .cert-entry-first,
+#ed-1772858968 p {
+    margin-bottom: 1rem;
+}
+
+/* Ensure long cert titles wrap and don't overflow */
+#ed-1772858968 a,
+#ed-1772858968 .text-24 {
+    word-break: break-word;
+}
+
+
 .about-section #ed-1770791745 a:focus {
     outline: 3px solid rgba(40,91,193,0.18);
     outline-offset: 3px;
