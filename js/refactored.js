@@ -140,7 +140,7 @@
 		const menuWrapper = document.querySelector('.menu-wrapper');
 		if (!menuWrapper) return;
 
-		const banner = document.querySelector('.banner');
+		const banner = document.querySelector('#ed-1725307861');
 		let stickyThreshold = banner ? banner.getBoundingClientRect().height + banner.offsetTop : menuWrapper.offsetHeight;
 
 		const updateSticky = function() {

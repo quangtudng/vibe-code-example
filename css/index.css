@@ -342,14 +342,14 @@ body {
     text-transform: none;
     font-style: normal;
     text-align: inherit;
-    font-size: 28px;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 1.6;
     letter-spacing: 0px
 }
 
 @media screen and (max-width: 35.9375rem) {
     body {
-        font-size: 20px
+        font-size: 15px
     }
 }
 
@@ -422,7 +422,7 @@ h2,
 
     h2,
     .h2 {
-        font-size: -3px
+        font-size: 1.6rem
     }
 }
 
@@ -430,7 +430,7 @@ h2,
 
     h2,
     .h2 {
-        font-size: -8px
+        font-size: 1.4rem
     }
 }
 
@@ -453,7 +453,7 @@ h3,
 
     h3,
     .h3 {
-        font-size: -3px
+        font-size: 1.4rem
     }
 }
 
@@ -461,7 +461,7 @@ h3,
 
     h3,
     .h3 {
-        font-size: -5px
+        font-size: 1.2rem
     }
 }
 
@@ -484,7 +484,7 @@ h4,
 
     h4,
     .h4 {
-        font-size: -2px
+        font-size: 1.25rem
     }
 }
 
@@ -492,7 +492,7 @@ h4,
 
     h4,
     .h4 {
-        font-size: -4px
+        font-size: 1.1rem
     }
 }
 
@@ -515,7 +515,7 @@ h5,
 
     h5,
     .h5 {
-        font-size: -1px
+        font-size: 1.1rem
     }
 }
 
@@ -523,7 +523,7 @@ h5,
 
     h5,
     .h5 {
-        font-size: -3px
+        font-size: 1rem
     }
 }
 
@@ -22493,13 +22493,13 @@ body.open-menu .ed-element.preset-menu-v2-home-7 .menu-trigger .menu-trigger-box
 
 @media screen and (max-width: 60.9375rem) {
     .ed-element.preset-counter-v2-counter-1 .counter-content {
-        font-size: -3px
+        font-size: 1.6rem
     }
 }
 
 @media screen and (max-width: 35.9375rem) {
     .ed-element.preset-counter-v2-counter-1 .counter-content {
-        font-size: -8px
+        font-size: 1.4rem
     }
 }
 
@@ -29441,5 +29441,85 @@ body.open-menu .ed-element.preset-menu-v2-centered .menu-trigger .menu-trigger-b
 /* Skills list items */
 #ed-1770963058 li,
 #ed-1770963064 li {
-    font-size: 18px;
+    font-size: 1rem;
+}
+
+/* ================================================================
+   UI/UX POLISH
+   ================================================================ */
+
+/* Stable anchor scroll offset – prevents sticky nav hiding targets */
+html {
+    scroll-padding-top: 68px;
+}
+
+/* ===== Hero CTA button: visible against gradient ===== */
+#ed-1736275634 .button {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    color: #fff !important;
+    padding: 0.75rem 2.25rem;
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+#ed-1736275634 .button:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    border-color: #fff;
+}
+
+/* ===== Sticky nav: box shadow on scroll ===== */
+.menu-wrapper.sticky {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+    z-index: 100;
+}
+
+/* ===== Section spacing: tighten builder over-spacing ===== */
+.wv-spacer > .inner {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+}
+
+/* Hero section keeps taller, more dramatic padding */
+#ed-1725307861 > .inner {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+/* ===== About: constrain text column width for readability ===== */
+#ed-1770791745 > .inner {
+    max-width: 480px;
+    padding: 2rem 2.5rem;
+}
+
+/* ===== Section headings: left-align for natural reading flow ===== */
+#ed-1772241484 h2,
+#ed-1772858953 h2,
+#ed-1803609519 h2 {
+    text-align: left;
+}
+
+/* ===== Nav active link: stronger visual indicator ===== */
+.ed-menu a.active {
+    opacity: 1;
+    font-weight: 700;
+}
+
+/* ===== Focus states: keyboard navigation support ===== */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #3B82F6;
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* ===== Responsive: project card columns collapse to rows ===== */
+@media screen and (max-width: 975px) {
+    #ed-1803609525,
+    #ed-1803609534,
+    #ed-1803609543 {
+        max-width: 80% !important;
+        margin: 0 auto;
+    }
 }
