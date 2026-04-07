@@ -48,16 +48,19 @@
 
 	// ===== 2. SMOOTH SCROLL (vanilla) =====
 	const initSmoothScroll = function() {
-		const scrollOffset = 20;
+		const defaultOffset = 20;
 		const menuWrapper = document.querySelector('.menu-wrapper');
 		const menu = menuWrapper ? menuWrapper.querySelector('.ed-menu') : null;
 		const menuLinks = menu ? menu.querySelectorAll('a') : [];
 		const scrollLinks = document.querySelectorAll('.scroll a');
+		const ctaLinks = document.querySelectorAll('.ed-button a[href*="#"]');
 
-		const allLinks = Array.from(menuLinks).concat(Array.from(scrollLinks));
+		const allLinks = Array.from(menuLinks).concat(Array.from(scrollLinks)).concat(Array.from(ctaLinks));
 
 		allLinks.forEach(link => {
 			if (!link.hash) return;
+			if (link.dataset.smoothBound === 'true') return;
+			link.dataset.smoothBound = 'true';
 
 			link.addEventListener('click', function(e) {
 				let target = null;
@@ -76,14 +79,13 @@
 				if (!target) return;
 				e.preventDefault();
 
-				// Vanilla smooth scroll
-				target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				const headerOffset = menuWrapper ? menuWrapper.offsetHeight + 8 : defaultOffset;
+				const targetTop = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
 
-				// Adjust for sticky header offset
-				const rect = target.getBoundingClientRect();
-				if (rect.top < scrollOffset) {
-					window.scrollBy({ top: rect.top - scrollOffset, behavior: 'smooth' });
-				}
+				window.scrollTo({
+					top: Math.max(0, targetTop),
+					behavior: 'smooth'
+				});
 			});
 		});
 	};
@@ -141,28 +143,17 @@
 	const initStickyHeader = function() {};
 
 	// ===== INITIALIZE ALL =====
-	document.addEventListener('DOMContentLoaded', function() {
-		// iOS touchstart hack
+	const initAll = function() {
 		document.addEventListener('touchstart', function() {}, false);
-
 		initMenu();
 		initSmoothScroll();
 		initActiveLinkHighlight();
 		initStickyHeader();
-	});
+	};
 
-	// Also run on page load if DOMContentLoaded already fired
 	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', function() {
-			initMenu();
-			initSmoothScroll();
-			initActiveLinkHighlight();
-			initStickyHeader();
-		});
+		document.addEventListener('DOMContentLoaded', initAll, { once: true });
 	} else {
-		initMenu();
-		initSmoothScroll();
-		initActiveLinkHighlight();
-		initStickyHeader();
+		initAll();
 	}
 })();

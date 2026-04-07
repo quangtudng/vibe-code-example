@@ -29455,20 +29455,22 @@ body.open-menu .ed-element.preset-menu-v2-centered .menu-trigger .menu-trigger-b
    UI/UX POLISH
    ================================================================ */
 
-/* ===== Hero CTA button: visible against gradient ===== */
+/* ===== Hero CTA button: solid white, confident primary action ===== */
 #ed-1736275634 .button {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-    border: 2px solid rgba(255, 255, 255, 0.75);
-    color: #fff !important;
-    padding: 0.75rem 2.25rem;
-    border-radius: 4px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+    background-color: #fff !important;
+    border: 2px solid #fff !important;
+    color: #285BC1 !important;
+    padding: 0.8rem 2.5rem !important;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    text-decoration: none !important;
 }
 #ed-1736275634 .button:hover {
-    background-color: rgba(255, 255, 255, 0.3) !important;
-    border-color: #fff;
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    color: #fff !important;
 }
 
 /* ===== Sticky nav: permanent subtle shadow ===== */
