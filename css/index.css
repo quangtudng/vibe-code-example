@@ -29841,3 +29841,142 @@ html {
     outline: 3px solid rgba(40,91,193,0.18);
     outline-offset: 3px;
 }
+
+/* PROJECTS & FOOTER POLISH ---------------------------------------------- */
+#ed-1803609519 {
+    padding: 48px 12px;
+}
+#ed-1803609519 h2 {
+    margin-bottom: 0.75rem;
+}
+#ed-1803609519 .ed-container {
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+}
+#ed-1803609519 .ed-container .inner {
+    flex:1 1 30%;
+    min-width:260px;
+}
+.project-card img{border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.06);}
+@media (max-width:800px){
+    #ed-1803609519 .ed-container .inner{flex:1 1 100%;}
+}
+
+/* Footer visual tweaks */
+.ed-element.preset-footer-heimdall-v2-default .inner{background:#0f1113;color:#ddd;border-top:1px solid rgba(255,255,255,0.04);}
+.ed-element.preset-footer-heimdall-v2-default a{color:#ffffff;opacity:0.92}
+.ed-element.preset-footer-heimdall-v2-default a:hover{opacity:1;text-decoration:underline}
+
+/* Projects titles: smaller, centered, tidy wrapping */
+#ed-1803609519 .ed-headline h3{
+    font-size: 1rem;
+    line-height: 1.25;
+    margin: 0.5rem 0 0 0;
+    text-align: center;
+    font-weight: 600;
+    color: inherit;
+}
+
+/* Footer padding and icon spacing tweaks */
+/* Footer background and border scoped to footer + its spacer */
+#ed-1803609552,
+#ed-1803609555 {
+    background: linear-gradient(180deg, #0b1220 0%, #070c15 65%, #060a12 100%) !important;
+}
+#ed-1803609552 {
+    border-top: 1px solid rgba(120, 157, 219, 0.2);
+}
+
+/* Override the global .wv-spacer > .inner padding for the footer spacer only */
+#ed-1803609555 > .inner {
+    padding: 60px 20px 80px !important;
+    text-align: center;
+}
+
+#ed-1803609558 h2,
+#ed-1803609558 .color-background,
+#ed-1803609558 span {
+    color: #f3f7ff !important;
+    font-size: 44px !important;
+}
+#ed-1803609558 h2 {
+    margin-bottom: 1.2rem;
+}
+#ed-1803609561 h2,
+#ed-1803609561 .color-background,
+#ed-1803609561 span {
+    color: #c5d1e2 !important;
+    font-size: 24px !important;
+}
+#ed-1803609561 h2 {
+    line-height: 1.45;
+    margin-bottom: 2rem;
+}
+
+/* Footer icon row — reset builder negative-margin trick, clean flex */
+#ed-1805651808 > .inner {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 32px !important;
+    margin: 0 !important;
+    width: auto !important;
+    padding: 0 !important;
+    overflow: visible !important;
+}
+
+/* Three equal-width slots, overflow visible so circles never clip */
+#ed-1805651811,
+#ed-1805651817,
+#ed-1805651823 {
+    flex: 0 0 64px !important;
+    width: 64px !important;
+    max-width: 64px !important;
+    min-width: 64px !important;
+    margin: 0 !important;
+    overflow: visible !important;
+}
+#ed-1805651811 > .inner,
+#ed-1805651817 > .inner,
+#ed-1805651823 > .inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 12px !important;
+    overflow: visible !important;
+}
+
+/* Circle buttons */
+#ed-1805651814 a,
+#ed-1805651820 a,
+#ed-1805651826 a {
+    display: flex !important;
+    width: 64px !important;
+    height: 64px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50%;
+    background: rgba(148, 170, 208, 0.1);
+    border: 1px solid rgba(173, 192, 225, 0.18);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    transition: transform .12s ease, background .12s ease;
+    overflow: visible;
+}
+#ed-1805651814 a:hover,
+#ed-1805651820 a:hover,
+#ed-1805651826 a:hover {
+    transform: translateY(-4px);
+    background: rgba(170, 193, 231, 0.18);
+}
+
+/* All SVGs identical size, no translate — flexbox centers them */
+#ed-1805651814 svg,
+#ed-1805651820 svg,
+#ed-1805651826 svg {
+    width: 28px !important;
+    height: 28px !important;
+    display: block;
+    transform: none !important;
+}
