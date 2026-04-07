@@ -135,41 +135,10 @@
 		updateActiveLinks();
 	};
 
-	// ===== 4. STICKY HEADER (vanilla, simplified) =====
-	const initStickyHeader = function() {
-		const menuWrapper = document.querySelector('.menu-wrapper');
-		if (!menuWrapper) return;
-
-		const banner = document.querySelector('#ed-1725307861');
-		let stickyThreshold = banner ? banner.getBoundingClientRect().height + banner.offsetTop : menuWrapper.offsetHeight;
-
-		const updateSticky = function() {
-			const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-			if (scrollTop > stickyThreshold) {
-				menuWrapper.classList.add('sticky');
-				const height = menuWrapper.offsetHeight;
-				document.body.style.setProperty('--spacer-height', height + 'px');
-			} else {
-				menuWrapper.classList.remove('sticky');
-				document.body.style.setProperty('--spacer-height', '');
-			}
-		};
-
-		const resizeObserver = new ResizeObserver(function() {
-			stickyThreshold = banner ? banner.getBoundingClientRect().height + banner.offsetTop : menuWrapper.offsetHeight;
-			updateSticky();
-		});
-
-		resizeObserver.observe(menuWrapper);
-		if (banner) resizeObserver.observe(banner);
-
-		window.addEventListener('scroll', updateSticky, { passive: true });
-		window.addEventListener('resize', updateSticky, { passive: true });
-
-		// Initial call
-		updateSticky();
-	};
+	// ===== 4. STICKY HEADER =====
+	// Navigation uses CSS `position: sticky` — no JS class toggling needed.
+	// Box-shadow is applied permanently via CSS. This function is intentionally a no-op.
+	const initStickyHeader = function() {};
 
 	// ===== INITIALIZE ALL =====
 	document.addEventListener('DOMContentLoaded', function() {
