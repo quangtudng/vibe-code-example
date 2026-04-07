@@ -29634,21 +29634,23 @@ html {
     box-shadow: none;
 }
 
-.about-section #ed-1770791748 h2 {
-    margin: 0 0 1.25rem;
-    font-size: 40px;
-    line-height: 1.15;
-}
-
 .about-section .about-text {
-    margin: 0 0 1.35rem;
-    line-height: 1.8;
-    background-color: transparent;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.9 !important;
     color: #334155;
+    background-color: transparent;
 }
 
 .about-section .about-text:last-child {
     margin-bottom: 0;
+}
+
+.about-section #ed-1770791748 h2 {
+    font-size: 36px !important;
+    letter-spacing: -0.25px;
+    margin-bottom: 1rem !important;
+    line-height: 1.15;
 }
 
 .about-section #ed-1770791754 {
@@ -29678,6 +29680,7 @@ html {
 
     .about-section .text-image-overlap-box,
     .about-section #ed-1770791754 {
+        flex: 1 1 100%;
         max-width: 100%;
     }
 
@@ -29709,32 +29712,7 @@ html {
     }
 }
 
-/* ===== ABOUT: readability and focus tweaks ===== */
-.about-section #ed-1770791745 > .inner {
-    max-width: 62ch; /* readable measure */
-}
-
-.about-section .about-text:first-of-type {
-    font-size: 1.15rem;
-    font-weight: 400;
-    color: #0f172a;
-    margin-bottom: 1rem;
-}
-
-.about-section .about-text {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem !important;
-    line-height: 1.9 !important;
-    color: #334155;
-}
-
-.about-section #ed-1770791748 h2 {
-    font-size: 36px !important;
-    letter-spacing: -0.25px;
-    margin-bottom: 1rem !important;
-}
-
-/* ===== SKILLS & CERTS POLISH ===== */
+/* ===== ABOUT: readability and focus tweaks ===== */\n.about-section .about-text:first-of-type {\n    font-size: 1.15rem;\n    font-weight: 400;\n    color: #0f172a;\n    margin-bottom: 1rem;\n}\n\n/* ===== SKILLS & CERTS POLISH ===== */
 /* Match spacing and horizontal inset used in About section */
 #ed-1772241484,
 #ed-1772858953 {
@@ -29804,6 +29782,18 @@ html {
     }
 }
 
+/* Stack Skills columns vertically on mobile */
+@media screen and (max-width: 35.9375rem) {
+    #ed-1770791760 > .inner {
+        flex-direction: column;
+    }
+    #ed-1770791763,
+    #ed-1770791766 {
+        max-width: 100% !important;
+        flex-basis: 100% !important;
+    }
+}
+
 /* Prevent text from touching the very edge inside certs columns */
 #ed-1772858953 > .inner,
 #ed-1772858962 > .inner,
@@ -29856,11 +29846,28 @@ html {
 }
 #ed-1803609519 .ed-container .inner {
     flex:1 1 30%;
-    min-width:260px;
+    min-width:240px;
 }
 .project-card img{border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.06);}
-@media (max-width:800px){
-    #ed-1803609519 .ed-container .inner{flex:1 1 100%;}
+/* Tablet: 2-column layout */
+@media (max-width:975px){
+    #ed-1803609525,
+    #ed-1803609534,
+    #ed-1803609543 {
+        max-width: 48% !important;
+    }
+    #ed-1803609519 .ed-container .inner{flex:1 1 45%;min-width:0;}
+}
+/* Mobile: single column */
+@media (max-width:35.9375rem){
+    #ed-1803609525,
+    #ed-1803609534,
+    #ed-1803609543 {
+        max-width: 100% !important;
+    }
+    #ed-1803609519 .ed-container .inner{flex:1 1 100%;min-width:0;}
+    #ed-1803609519{padding:32px 10px;}
+    #ed-1803609519 .project-card img{height:auto !important;}
 }
 
 /* Footer visual tweaks */
@@ -29979,4 +29986,44 @@ html {
     height: 28px !important;
     display: block;
     transform: none !important;
+}
+
+/* Responsive: mobile footer font scaling */
+@media screen and (max-width: 35.9375rem) {
+    #ed-1803609555 > .inner {
+        padding: 40px 14px 56px !important;
+    }
+    #ed-1803609558 h2,
+    #ed-1803609558 .color-background,
+    #ed-1803609558 span {
+        font-size: 32px !important;
+    }
+    #ed-1803609561 h2,
+    #ed-1803609561 .color-background,
+    #ed-1803609561 span {
+        font-size: 18px !important;
+    }
+    #ed-1805651808 > .inner {
+        gap: 20px !important;
+    }
+    #ed-1805651811,
+    #ed-1805651817,
+    #ed-1805651823 {
+        flex: 0 0 52px !important;
+        width: 52px !important;
+        max-width: 52px !important;
+        min-width: 52px !important;
+    }
+    #ed-1805651814 a,
+    #ed-1805651820 a,
+    #ed-1805651826 a {
+        width: 52px !important;
+        height: 52px !important;
+    }
+    #ed-1805651814 svg,
+    #ed-1805651820 svg,
+    #ed-1805651826 svg {
+        width: 22px !important;
+        height: 22px !important;
+    }
 }

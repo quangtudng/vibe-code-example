@@ -17,32 +17,37 @@
 		menuTrigger.setAttribute('aria-expanded', 'false');
 		menuTrigger.setAttribute('aria-controls', menu.id);
 
+		const closeMenu = function() {
+			menuTrigger.setAttribute('aria-expanded', 'false');
+			menuTrigger.classList.remove('open');
+			menu.classList.remove('open');
+			body.classList.remove('open-menu');
+		};
+
 		// Toggle menu on button click
 		menuTrigger.addEventListener('click', function() {
 			const isExpanded = menuTrigger.getAttribute('aria-expanded') === 'true';
 			menuTrigger.setAttribute('aria-expanded', !isExpanded);
 			menuTrigger.classList.toggle('open');
 			menu.classList.toggle('open');
-			menu.classList.toggle('open-menu');
+			body.classList.toggle('open-menu');
 
 			if (!isExpanded) {
 				menu.setAttribute('tabindex', '0');
 				menu.focus();
-				menu.addEventListener('blur', function onBlur() {
-					menu.removeAttribute('tabindex');
-					menu.removeEventListener('blur', onBlur);
-				}, { once: true });
 			}
 		});
 
 		// Close menu when link is clicked
 		menuLinks.forEach(link => {
-			link.addEventListener('click', function() {
-				menuTrigger.setAttribute('aria-expanded', 'false');
-				menuTrigger.classList.remove('open');
-				menu.classList.remove('open');
-				menu.classList.remove('open-menu');
-			});
+			link.addEventListener('click', closeMenu);
+		});
+
+		// Close menu on Escape key
+		document.addEventListener('keydown', function(e) {
+			if (e.key === 'Escape' && body.classList.contains('open-menu')) {
+				closeMenu();
+			}
 		});
 	};
 
@@ -129,9 +134,13 @@
 			});
 		};
 
-		// Update on scroll and resize
+		// Update on scroll (passive) and debounced resize
+		let resizeRaf = 0;
 		window.addEventListener('scroll', updateActiveLinks, { passive: true });
-		window.addEventListener('resize', updateActiveLinks, { passive: true });
+		window.addEventListener('resize', function() {
+			cancelAnimationFrame(resizeRaf);
+			resizeRaf = requestAnimationFrame(updateActiveLinks);
+		}, { passive: true });
 
 		// Initial call
 		updateActiveLinks();
