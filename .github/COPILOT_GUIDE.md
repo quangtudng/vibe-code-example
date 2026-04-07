@@ -5,6 +5,17 @@ different job. Together, they give Copilot context, rules, and reusable workflow
 
 ---
 
+## Table of contents
+
+- [Introduction](#introduction)
+- [Core Concepts](#core-concepts)
+- [Practice it yourself](#practice-it-yourself)
+- [How They Connect](#how-they-connect)
+- [Beyond the Basics](#beyond-the-basics)
+- [Tips](#tips)
+
+---
+
 ## Folder Map
 
 ```
@@ -25,7 +36,7 @@ different job. Together, they give Copilot context, rules, and reusable workflow
 
 ---
 
-## The 5 Core Concepts
+## Core Concepts
 
 ### 1. Workspace Instructions (`copilot-instructions.md`)
 **Always loaded.** Project rules that apply to every Copilot conversation — coding
@@ -72,36 +83,34 @@ You open a file and chat with Copilot
 
 ---
 
-## Try It Now
 
-1. **Ask a question** — Copilot already follows `copilot-instructions.md`. Just open a file and chat.
-2. **Type `/review`** — runs a code review on your current file.
-3. **Type `/explain`** — explains selected code in plain language.
-4. **Pick `@reviewer`** — a read-only reviewer that suggests but never edits.
-5. **Type `/quick-audit`** — checks a file for accessibility, security, and performance issues.
+## Practice it yourself
 
----
+Try this short hands-on loop to learn the workflow without getting overwhelmed:
 
-## Adding Your Own
+1. Open a file and ask Copilot a question — `copilot-instructions.md` is already in effect.
+2. Select a code block and run `/explain` to get a plain-language summary.
+3. Make one small, safe change (text, spacing, or color), save, then run `/review` on that file.
+4. Fix any high-priority suggestions and run `/quick-audit` to check accessibility and security basics.
 
-Each type follows the same pattern: create a file in the right folder with the right extension.
+Copying this setup to another project:
 
-| Type | Create in | Extension | Key field |
-|------|-----------|-----------|-----------|
-| Instruction | `instructions/` | `.instructions.md` | `description` and/or `applyTo` |
-| Prompt | `prompts/` | `.prompt.md` | `description`, optional `tools` |
-| Agent | `agents/` | `.agent.md` | `description`, `tools` |
-| Skill | `skills/<name>/` | `SKILL.md` | `name`, `description` |
+- Copy the `.github/` folder or only the pieces you need (for example `copilot-instructions.md` and `prompts/`).
+- Edit the `This Project` section inside `copilot-instructions.md` to reflect the new project's specifics.
+- Use `applyTo` in `instructions/` files to scope rules to file types in the new repo.
 
-Look at the existing files in each folder for working examples you can copy and modify.
+Why this is beginner-friendly:
+
+- Everything here is passive and read-only until you intentionally add scripts or hooks.
+- Start with `copilot-instructions.md` and one prompt (`/explain`) before adding more files.
 
 ---
 
 ## Beyond the Basics
 
-These exist but are more advanced — explore them once you're comfortable with the above:
+These features exist but are more advanced — explore them once you're comfortable with the above:
 
-- **Hooks** (`.github/hooks/*.json`): Run scripts at lifecycle events (e.g., auto-lint after edits).
+- **Hooks** (`.github/hooks/*.json`): Run shell scripts at lifecycle events (e.g., auto-lint after edits).
 - **MCP Servers**: Connect Copilot to external tools (databases, CI, issue trackers). Configured in VS Code settings.
 
 ---

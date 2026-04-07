@@ -20,3 +20,5 @@ The site started as a website-builder export with extra assets and large JS bund
 
 Open `index.html` in a browser to review locally.
 
+See the Copilot customization guide: [.github/COPILOT_GUIDE.md](.github/COPILOT_GUIDE.md)
+
